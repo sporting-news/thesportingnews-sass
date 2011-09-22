@@ -1,0 +1,586 @@
+$button: $page
+$chrome: $page
+$navheight: 35px
+
+// BODY COLOR
+body
+  background: $body
+  overflow: hidden
+
+//  GRIDS
+.grid
+  margin: $gutter
+  background-color: $page
+
+
+// Basic metrics for chrome
+.chrome
+  position: absolute
+  display: block
+  bottom: 0
+  top: 0
+  left: 0
+  right: 0
+
+.viewer
+  position: absolute
+  display: block
+  top: 0
+  right: 0
+  bottom: 0
+  left: 0
+  z-index: 0
+.nav
+  .bottom
+    position: absolute
+    left: 0
+    right: 49px
+    bottom: 0
+    text-align: right
+    li
+      background-image: url('../img/sprites.png')
+      background-position: -598px (-1 * $navheight)
+      display: inline-block
+      position: relative
+      height: $navheight
+      padding: 0
+      margin: 0 5px 0 4px
+      vertical-align: text-top
+      &:before, &:after
+        content: "\0020"
+        position: absolute
+      &:before
+        +sprite(16px,$navheight,534px,0)
+        top: 0px
+        left: -16px
+      &:after
+        +sprite(16px,$navheight,550px,0)
+        top: 0px
+        right: -16px
+      a, .numbering, .arrow, h2, .button
+        font-family: $font
+        font-weight: 600
+        position: relative
+        display: block
+        color: #fff
+        text-decoration: none
+        z-index: 2
+        padding: 10px 0 0 0
+        text-align: center
+        +caps
+        +solid(14px)
+        white-space: nowrap
+        overflow: hidden
+        height: $navheight - 8px
+        border: none
+        background: none
+      &.hiddennav
+        opacity: .0
+        width: 0
+        margin-right: -12px
+        +transition
+        .active &
+          opacity: 1
+          width: 140px
+          margin-right: 8px
+          &.social
+            width: $navheight * 3
+      &.social
+        div
+          position: relative
+          padding: 4px
+          left: -6px
+          overflow: hidden
+          height: $navheight
+          white-space: nowrap
+        a
+          margin: 0
+          padding: 0
+          position: static
+          &.facebook
+            +sprite(($navheight - 8px),($navheight - 8px),350px,0)
+            display: inline-block
+          &.twitter
+            +sprite(($navheight - 8px),($navheight - 8px),392px,0)
+            display: inline-block
+          &.email
+            +sprite(($navheight - 8px),($navheight - 8px),435px,0)
+            display: inline-block
+    li.alwaysactive
+      +transition
+      background: #f00
+      margin: 0 8px 0 0
+      &:before
+        +sprite(16px,$navheight,566px,0)
+      &:after
+        +sprite(16px,$navheight,582px,0)
+    li.activatearrow
+      background-image: url('../img/sprites.png')
+      background-position: -598px (-1 * $navheight)
+      text-indent: -999px
+      position: absolute
+      right: -54px
+      width: 40px
+      bottom: 0
+      overflow: visible
+      &:after
+        left: 3px
+        +sprite(40px,$navheight,358px,31px)
+  .menu
+    ul
+      display: none
+      position: absolute
+      bottom: 60px
+      background: #000
+      +border-radius(6px)
+      padding: 6px
+      width: 200px
+      li
+        text-align: left
+        display: block
+        color: #fff
+        background: none
+        &:before, &:after
+          display: none
+    &.menu-active ul
+      display: block
+  .top
+    .sidebar
+      position: absolute
+      top: 0
+      left: 0
+      right: 0
+      height: 0
+      .active &.sidebar-active .content
+        border-bottom: 4px solid rgba(#000, .5)
+        .no-mobile &
+          border-bottom: none
+          +box-shadow(0 0 6px #000)
+      .content
+        z-index: 3
+        position: absolute
+        left: 0
+        right: 0
+        top: -100px
+        height: 100px
+        +transition
+        background-color: #222
+        overflow: hidden
+        color: #fff
+        overflow: hidden
+        a
+          position: relative
+          vertical-align: text-top
+          display: none
+          overflow: hidden
+          color: #fff
+          white-space: normal
+          width: 100px
+          height: 100px - 13px
+          padding: 3px 6px
+          margin-right: -3px
+          background: #000
+      .scroll
+        overflow: auto
+        overflow-y: hidden
+      .button
+        z-index: 2
+        left: -5px
+        width: 0
+        opacity: .0
+        +transition
+        background-image: url('../img/sprites.png')
+        background-position: -598px (-1 * $navheight)
+        display: block
+        position: absolute
+        height: $navheight
+        text-align: center
+        button
+          color: #fff
+          +caps
+          font-weight: 700
+          border: none
+          background: none
+          width: 100%
+          padding: 6px
+        &:before, &:after
+          content: "\0020"
+          position: absolute
+          display: block
+          top: 0
+        &:before
+          +sprite(16px,$navheight,534px,0)
+          left: -16px
+        &:after
+          +sprite(16px,$navheight,550px,0)
+          right: -16px
+        .active &
+          width: 150px
+          opacity: 1
+      .active &.scores .button
+        left: 162px
+      .active &.teams .button
+        left: 329px
+      .active &.sidebar-active
+        .content
+          top: 0
+        .button
+          top: 100px
+          left: 0
+          &:before
+            background: #000
+
+.sidebar
+  ::-webkit-scrollbar
+    width: 0
+    height: 8px
+    background-color: rgba(#333,.5)
+  ::-webkit-scrollbar-thumb
+    border-radius: 4px
+    background-color: rgba(#fff,.5)
+    @if $sn-web
+      +box-shadow(0 0 1px rgba(#000,.5))
+
+.touch .sidebar
+  ::-webkit-scrollbar
+    height: 0
+
+
+.nav .top .sidebar.contents
+  white-space: nowrap
+  margin-top: 0
+  height: 0
+  a.contents
+    display: inline-block
+  .label
+    font-weight: bold
+    +solid(10px)
+    +caps
+    display: block
+  .section
+    font-weight: bold
+    +solid(16px)
+    text-transform: uppercase
+  .title
+    padding-top: 3px
+    display: block
+    +type(11px, 14px)
+  .offline & a.no-offline
+    display: none
+
+.nav .top .sidebar.scores
+  white-space: nowrap
+  margin-top: 0
+  .content
+    display: none
+    height: 94px
+  .content.active
+    display: block
+  a.scores
+    display: inline-block
+    .home, .away
+      border-top: 1px solid #333
+      height: 22px
+    .meta
+      +solid(10px)
+      +caps
+      font-weight: bold
+      padding: 4px 0
+      .timestamp
+        display: block
+        color: #ccc
+    .team
+      color: #fff
+      +solid(14px)
+    .score
+      color: #fff
+      display: block
+      float: right
+      +solid(14px)
+      background-color: #222
+      padding: 4px 0
+      width: 2.5em
+      height: 1em
+      text-align: center
+  a.no-offline
+    display: none
+  .names
+    +transition
+    position: absolute
+    z-index: 2
+    top: 0
+    opacity: 0
+    left: 155px
+    div
+      display: inline-block
+      position: relative
+      z-index: 99
+      width: 70px
+      height: 29px
+      padding: 0
+      margin-left: 13px
+      color: #fff
+      font-weight: bold
+      +caps
+      text-align: center
+      &:before, &:after
+        content: "\0020"
+        display: block
+        position: absolute
+        width: 0
+        height: 0
+        top: -6px
+        border-left: 0px solid rgba(#000, .0)
+        border-right: 0px solid rgba(#000, .0)
+      &:before
+        left: -16px
+        border-bottom-style: solid
+        border-bottom-width: 35px
+        border-left-width: 16px
+      &:after
+        right: -16px
+        border-top-style: solid
+        border-top-width: 35px
+        border-right-width: 16px
+
+.active .nav .top .sidebar-active div.names
+  position: absolute
+  top: 100px
+  opacity: 1
+
+// hide scores when offline
+.offline .active .nav .top .teams button
+  left: 162px
+
+.nav .top .sidebar.teams
+  white-space: nowrap
+  margin-top: 0
+  height: 0
+  a.teams
+    display: inline-block
+  .label
+    +solid(18px)
+  .offline & a.no-offline
+    display: none
+
+
+// FACEBOOK LOGIN
+
+//.loginoverlay
+//  position: absolute
+//  overflow: hidden
+//  top: 0
+//  right: 0
+//  bottom: 0
+//  left: 0
+//  z-index: 99
+//  background: rgba(#000, .5)
+//  .inner
+//    width: 400px
+//    height: 500px
+//    position: absolute
+//    top: 50%
+//    left: 50%
+//    margin: -250px 0 0 -200px
+//    background: #DDDBDC
+//    border: 8px solid #fff
+//    +border-radius(10px)
+//    +box-shadow(0 1px 6px #000)
+//  .sportselection
+//    width: 500px
+//    height: 100%
+//    position: absolute
+//    right: 0
+//    background: #DDDBDC
+//    border: 8px solid #fff
+//    +border-radius(10px)
+//    +box-shadow(0 1px 6px #000)
+//    p.header
+//      +type(12px, 12px)
+//      text-transform: uppercase
+//      color: #000
+//      .team
+//        position: absolute
+//        left: 300px
+//      .sport
+//        position: absolute
+//        left: 70px
+//    ul
+//      padding: 0 15px
+//      li
+//        background: #A2948F
+//        color: #fff
+//        display: block
+//        width: 220px
+//        padding: 10px
+//        height: 20px
+//        margin-bottom: 2px
+//        +type(16px, 16px)
+//        font-weight: bold
+//        text-transform: uppercase
+//        &:hover
+//          background: #FF0000
+//        ul
+//          display: none
+//          margin: -28px 0 0 260px
+//          li
+//            font-weight: normal
+//            text-transform: none
+//        input
+//          display: inline
+//          +type(10px, 10px)
+//          font-weight: normal
+//          width: 20px
+//          margin-right: 20px
+//        span
+//          +type(12px, 16px)
+//          float: right
+//          font-weight: normal
+//          color: #000
+//          text-transform: none
+//      li:hover
+//        width: 260px
+//        ul
+//          display: block
+//          li
+//            background: #fff
+//            color: #3e3e3e
+//            width: 140px
+//            &:hover
+//              width: 140px
+//              color: #fff
+//              background: #FF0000
+//  button
+//    background: #888888
+//    +border-radius(5px)
+//    color: #fff
+//    font-weight: bold
+//    border: 0
+//    +type(12px, 16px)
+//    padding: 4px
+//    &:hover
+//      background: #5a5a5a
+//    &.cancel
+//      position: absolute
+//      top: 5px
+//      right: 5px
+//    &.help
+//      float: right
+//      margin: 5px
+//    &.save
+//      margin-left: 160px
+//    &.done
+//      position: absolute
+//      bottom: 20px
+//      right: 10px
+//      +type(14px, 14px)
+//  .logo img
+//    display: block
+//    margin: 30px auto 10px
+//  h2
+//    text-align: center
+//    margin: 0 0 10px
+//    color: #3e3e3e
+//  p
+//    +type(18px, 26px)
+//    text-indent: 0
+//    padding: 10px 15px
+//    color: #3e3e3e
+//    &.other
+//      +type(14px, 18px)
+//      a
+//        display: block
+//        margin: 5px 0
+//  .login
+//    background: #fff
+//    p
+//      color: #000
+
+// hide login for now.
+.loginoverlay
+  display: none
+
+// MEDIA QUERIES
+@media all and (max-width: 580px)
+  .active .nav .bottom li
+    &.settings, &.help
+      width: $navheight
+  .nav .bottom
+    .settings a
+      +sprite($navheight, $navheight, 401px, 22px)
+    .help a
+      +sprite($navheight, $navheight, 433px, 22px)
+  .nav .top
+    .sidebar
+      .active &.sidebar-active .content a
+        width: 100px
+      .button
+        button
+          padding: 12px 0
+          +type(10px, 1em)
+        .active &
+          width: 80px
+      .active &.scores
+        .button
+          left: 92px
+        .names
+          left: 85px
+          div
+            font-size: 10px
+            width: auto
+      .active &.teams .button
+        left: 189px
+      .active &.sidebar-active
+        .button
+          left: 0
+
+@media all and (max-width: 380px)
+  .active .nav .bottom li.alwaysactive
+    opacity: 0
+    width: 0
+
+// LIGHTBOX
+
+.lightbox
+  position: absolute
+  top: 0
+  right: 0
+  bottom: 0
+  left: 0
+  z-index: 99
+  background: rgba(#000, .5)
+  .container
+    +border-radius(6px)
+    +box-shadow(0 1px 6px #000)
+    position: absolute
+    overflow: visible
+    top: 0
+    right: 0
+    bottom: 0
+    left: 0
+    padding: 10px
+    background: #000
+    &.lightbox
+      padding: 0
+    &:after
+      position: absolute
+      content: "×"
+      font-weight: bold
+      font-size: 20px
+      color: #fff
+      background: #000
+      top: -10px
+      right: -10px
+      height: 20px
+      width: 20px
+      padding: 1px 1px 3px 3px
+      border: 1px solid #fff
+      border-radius: 15px
+  // scrollbar style for lightboxes
+  ::-webkit-scrollbar
+    width: 6px
+    height: 0
+    background-color: 0 0 1px #666
+  .touch &
+    ::-webkit-scrollbar
+      width: 0

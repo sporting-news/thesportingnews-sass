@@ -1,0 +1,141 @@
+// BODY COLOR
+body
+  background: $body
+
+
+//  GRIDS
+.grid
+  padding: 0 $margin
+  background-color: $page
+
+
+//  TYPOGRAPHY
+
+div, button
+  font-family: $font
+  font-weight: normal
+  font-style: normal
+  color: $text
+  +type($size, $line-height)
+
+h1, h2, h3, h4, h5, h6
+  text-rendering: optimizeLegibility
+
+.caps
+  font-family: inherit
+  font-weight: inherit
+  +caps
+
+.column
+  min-height: $line-height * 3
+
+em
+  font-family: inherit
+  font-size: inherit
+  font-weight: inherit
+  font-style: italic
+
+strong
+  font-family: inherit
+  font-size: inherit
+  font-weight: bold
+  font-style: inherit
+
+.signed
+  text-indent: 0
+  margin-top: $line-height
+.signed:before
+  content: "— "
+
+.covercredit
+  text-indent: 0
+
+// COLORS
+
+::-moz-selection
+  background: $primary
+  color: $page
+
+::selection
+  background: $primary
+  color: $page
+
+.white, .white *
+  color: #fff
+.black, .black *
+  color: #000
+.primary, .primary *
+  color: $primary
+.secondary, .secondary *
+  color: $secondary
+.tertiary, .tertiary *
+  color: $tertiary
+
+.onwhite
+  background: white
+.onblack
+  background: black
+.onprimary
+  background: $primary
+.onsecondary
+  background: $secondary
+.ontertiary
+  background: $tertiary
+
+
+// ADD PADDING TO CAPTIONS WHEN IN A FILL GRID
+
+.fill .caption
+  padding-left: $margin
+  padding-right: $margin
+
+
+// LINKS
+
+.column
+  a, a:visited, a:active
+    color: darken($primary, 20%)
+    border-bottom: none
+  a:hover
+    color: $primary
+    border-bottom: 1px solid $primary
+
+
+// INLINE IMAGES
+
+.column
+  img
+    display: block
+    line-height: $line-height
+  .keeptogether img
+    display: inline
+
+
+// FALLBACK IMAGES
+
+.img.fallback
+  padding: 6px 6px 0 6px
+  margin: $line-height 0 0 0
+  border: 1px solid #dddddd
+  +border-radius(5px)
+  min-height: 50px
+  &:hover
+    border-color: $primary
+    +box-shadow(inset 0 0 5px lighten($primary, 30%))
+  img
+    float: left
+    display: block
+  .caption
+    display: block
+    padding: 0
+    margin: 0 0 0 50px
+    text-indent: 0
+    line-height: 16px
+    text-align: left
+
+
+// HIDE LETTER TO EDITOR IMAGES ON SMALL COLUMNS
+
+.w3col, .w2col, .mobile
+  .column img.photo
+    display: none

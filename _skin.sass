@@ -1,0 +1,2079 @@
+// Type
+$size: 14px
+$line-height: 20px
+
+$base-size: $size
+
+// Metrics
+$columns: 12
+$column: 95px
+$gutter: 16px
+$margin: 24px
+$border: 12px
+$top: $line-height*2
+$bottom: $line-height*3
+
+// Colors
+$primary: #ce1443
+$secondary: #f50019
+$tertiary: #f7f4d5
+$text: #000
+$page: #fff
+$body: #333
+$home: #3b5880
+$visiting: #726d6e
+
+$sprite-file: '../img/sprites.png'
+
+// Fonts
+$font: 'apres', 'Apres RE', Verdana, sans-serif
+$hed: 'Popular', 'popular', serif
+$hed-weight: bold
+$hed-style: normal
+$subhed: $font
+
+@import sn-team-logos
+
+.runningtitle
+  background-color: $primary
+  .label, .section
+    background-color: $primary
+footer
+  border-top: 1px solid $primary
+
+=button($color)
+  width: auto
+  height: 18px
+  font-size: 18px
+  font-weight: bold
+  padding: 2px 14px
+  +caps(.1em)
+  background: $color
+  @if $sn-web
+    +gradient(lighten($color, 10%), darken($color, 10%))
+    +letterpress($color)
+  border: 1px solid $color
+  border-top-color: darken($color, 20%)
+  border-bottom-color: lighten($color, 10%)
+  +border-radius(18px)
+  color: #fff
+  font-family: $font
+  &:hover
+    border: 1px solid $color
+    color: #fff
+    @if $sn-web
+      +gradient(darken($color, 10%), lighten($color, 10%))
+
+=smallbutton($color)
+  width: auto
+  height: 12px
+  font-size: 12px
+  font-weight: normal
+  padding: 2px 14px
+  +caps(.1em)
+  background: $color
+  @if $sn-web
+    +gradient(lighten($color, 10%), darken($color, 10%))
+    +letterpress($color)
+  border: 1px solid $color
+  border-top-color: darken($color, 20%)
+  border-bottom-color: lighten($color, 10%)
+  +border-radius(18px)
+  color: #fff
+  &:hover
+    border: 1px solid $color
+    color: #fff
+    @if $sn-web
+      +gradient(darken($color, 10%), lighten($color, 10%))
+
+=sport($sport, $color)
+  .#{$sport}
+    .runningtitle
+      background-color: $color
+      .label, .sublabel
+        background-color: $color
+    footer
+      border-top: 1px solid $color
+    .pullquote p
+      border-left: 5px solid $color
+  .nav .sidebar .#{$sport}
+    border-top: 6px solid $color
+    &.sport-select span.title
+      background: $color
+      @if $sn-web
+        +gradient($color, darken($color, 20%))
+  .nav .sidebar.scores
+    a.#{$sport}
+      border-top-color: $color
+      &.current
+        background: $color
+  .grid .#{$sport}
+    .sidebar
+      border-top: 1px solid $color
+  .toc.grid .hero.container .links a.#{$sport}:before
+    background-color: $color
+  .toc.grid .slideshow .#{$sport}
+    .tab
+      background: $color
+      &:before
+        background: $color
+  .toc.grid 
+    h4.#{$sport}
+      border-top: 1px solid $color
+  .sectionfront.grid .#{$sport}
+    .border
+      border-color: $color
+    h1.legue
+      text-shadow: 4px 4px 0 $color, -4px 4px 0 $color, -4px -4px 0 $color, 4px -4px 0 $color
+  .sectionfront.grid
+    a.#{$sport}
+      border-left: 4px solid $color
+      .team
+        color: $color
+        +caps
+        display: block
+        +solid(14px)
+  .photos.page-1 .#{$sport}
+    background: $color
+  .teamindex.grid h5.#{$sport}
+    border-top: 1px solid $color
+  .top .names .#{$sport}
+    background: $color
+    &:before
+      border-bottom-color: $color
+    &:after
+      border-top-color: $color
+
++sport(sn, $primary)
++sport(mlb, #009933)
++sport(nfl, #006699)
++sport(ncaaf, #cc3333)
++sport(nba, #ff9933)
++sport(ncaab, #cc3333)
++sport(nhl, #663399)
++sport(nascar, #ffcc33)
++sport(soccer, #0099cc)
++sport(golf, #009933)
+
+// Image/page ratios
+=ratios
+  +ratio(16, 9, $columns)
+  +ratio(4, 3, $columns)
+  +ratio(5, 4, $columns)
+  +ratio(1, 1, $columns)
+  +ratio(4, 5, $columns)
+  +ratio(3, 4, $columns)
+
+=hed
+  font-family: $hed
+  font-weight: $hed-weight
+  font-style: $hed-style
+
+=bluebg
+  background: #1b2b59
+  @if $sn-web
+    +gradient(#626F96, #1b2b59)
+  color: #fff
+
+=redbg
+  background: $primary
+  @if $sn-web
+    +gradient($primary, #831518)
+  color: #fff
+
+=greybg
+  background: #848484
+  @if $sn-web
+    +gradient(#3A3A3A, #848484)
+  color: #fff
+
+// Column widths
+.column
+  width: grid(3)
+  +type($size, $line-height)
+  .toc &
+    width: grid(2)
+  .aggregation &
+    width: grid(4)
+  .tunein &
+    width: grid(4)
+
+// Typographic styles
+
+p
+  +type($size, $line-height)
+  color: $text
+  text-indent: $line-height
+  &.noindent, &.caption, .keeptogether &
+    text-indent: 0
+  &.caption
+    font-family: $subhed
+    font-weight: 700
+    +type(13px, 16px)
+    text-align: left
+    margin: 6px 0
+    .credit
+      color: #555
+      font-weight: 700
+      font-style: normal
+      font-size: 11px
+      +caps(.07em)
+    .lightbox &
+      color: #fff
+      .credit
+        color: #999
+  &.signed
+    font-style: italic
+
+h1, h2, h3, h4, h5, h6
+  font-family: $subhed
+  font-size: $line-height
+  font-weight: bold
+  color: darken($text, 10%)
+
+.hed
+  overflow: visible !important
+
+h1.hed
+  +hed
+  +solid(36px)
+h2.dek
+  font-weight: 400
+  color: #222
+  +type(20px, 24px)
+  margin: 6px 0
+h3.byline
+  &:before
+    content: 'BY '
+  +caps(.05)
+  +solid($size * .9)
+h4.emailpaper
+  font-size: 14px
+  font-weight: normal
+  font-style: italic
+h4.timestamp
+  color: #333
+  +solid(11px)
+  font-weight: normal
+
+.meta.container
+  img
+    display: inline
+    padding-right: 3px
+  hgroup
+    display: inline-block
+
+h5, h6
+  margin-top: $line-height
+
+h5
+  font-size: $size
+
+li
+  list-style: none
+
+.location
+  font-weight: bold
+  font-size: 12px
+  &:after
+    content: "— "
+
+.column, .no-treesaver
+  h1, .meta
+    margin-bottom: $line-height
+
+
+footer
+  position: absolute
+  display: block
+  padding-top: 2px
+  bottom: $line-height
+  +solid(12px)
+  font-family: $subhed
+  .publication
+    font-weight: 700
+    +caps(0)
+    margin-right: .5em
+  .timestamp
+    font-weight: 400
+
+.article
+  h4, h5, h6
+    margin-top: $line-height
+    .container &
+      margin-top: 0
+
+.column
+  p, li, ul
+    a
+      color: darken($primary, 20%)
+      border-bottom: 1px dotted darken($primary, 20%)
+      &:hover
+        color: $primary
+        border-bottom: 1px solid $primary
+
+.topic
+  color: $secondary
+  &.a
+    color: $secondary
+
+.iab300x250
+  display: block
+  width: 300px
+  height: 250px
+  border: 8px solid #999
+  border-right-width: 9px
+  +border-radius(3px)
+
+// General grid styles
+
+.grid
+  margin: 0 $gutter
+  padding: 0 $margin
+  @if $sn-web
+    +box-shadow(0 0 6px #000)
+  .bkg-img
+    position: absolute
+    top: 0
+    bottom: 0
+    left: 0
+    right: 0
+    background-repeat: no-repeat
+    background-position: center center fixed
+    -webkit-background-size: cover
+    -moz-background-size: cover
+    -o-background-size: cover
+    background-size: cover
+  .button
+    +button(#555)
+    display: block
+    text-align: center
+    margin-top: $line-height
+    height: 20px !important
+    padding: 2px !important
+  .smallbutton
+    +smallbutton(#555)
+    text-align: center
+    margin-top: $line-height * 2
+    height: 18px !important
+    padding: 2px 10px !important
+  .runningtitle
+    position: absolute
+    top: 0
+    left: 0
+    right: 0
+    height: 18px
+    background-image: url('../img/dots.png')
+    background-repeat: repeat-x
+    background-position: 0 7px
+    +solid(12px)
+    .label, .section, .sublabel
+      display: inline-block
+      font-family: $subhed
+      color: $page
+      +caps
+      height: 11px
+      padding: 3px 2px 2px 4px
+    .label, .section
+      font-weight: 700
+    .sublabel
+      font-weight: 400
+  .viewmore.container
+    height: $line-height * 2
+    margin-bottom: 6px
+    .viewmore
+      +button(#555)
+      padding: 2px 20px 6px 20px !important
+      position: absolute
+      vertical-align: middle
+      top: 0
+      left: 50%
+      margin-left: -85px
+      width: 150px
+  // VIDEO FIGURES
+  .container.img .video
+    &:before
+      content: "\0020"
+      +sprite(100px, 100px, 449px, 80px)
+      top: 50%
+      left: 50%
+      margin: -50px 0 0 -50px
+      position: absolute
+  // PULLQUOTES
+  .pullquote.container
+    p
+      text-indent: 0
+      +type($line-height * 1, $line-height * 1.25)
+      color: #444
+      font-weight: bold
+      padding: 0 0 0 12px
+    .attribution
+      font-style: italic
+      +solid(16px)
+      &:before
+        content: "— "
+  // GENERAL SIDEBAR SUPPORT
+  .sidebar-hed
+    position: absolute
+    z-index: 2
+    width: grid(2) + $gutter + $margin
+    right: 0
+    top: 26px
+    height: 43px
+    padding-top: 18px
+    text-indent: $gutter * 2
+    font-weight: bold
+  .sidebar.container
+    background: $tertiary
+    width: grid(2) + $margin
+    right: 0
+    top: (22px + $line-height * 2) !important
+    bottom: 42px !important
+    ul
+      padding: 6px 0 0 0
+    li
+      clear: both
+      padding: 4px 6px
+      list-style: none
+      border-bottom: 1px solid darken($tertiary, 15%)
+      &:last-child
+        border-bottom: none
+      .twitterimg
+        +border-radius(4px)
+        display: block
+        float: left
+        width: 40px
+        height: 40px
+        -webkit-background-size: cover
+        -moz-background-size: cover
+        -o-background-size: cover
+        background-size: cover
+        margin: 0 6px 3px 0
+      a.handle
+        font-weight: bold
+        display: inline
+        color: darken($primary, 20%)
+      p
+        display: inline
+        +type(14px, 16px)
+        a
+          display: inline
+          color: darken($primary, 20%)
+          border-bottom: 1px dotted darken($primary, 20%)
+  &.ipad.vertical
+    .sidebar.container, .sidebar-hed
+      width: (grid(2) + (768px - grid(6)) / 2)
+  &.ipad.horizontal
+    .sidebar.container, .sidebar-hed
+      width: (grid(2) + (1024px - grid(9)) / 2)
+
+// RUNNING TITLE MARGINS
+.runningtitle
+  padding: 3px $margin 1px $margin
+  z-index: 3
+  .ipad.horizontal &
+    padding: 3px ((1024px - (grid(9))) / 2) 1px ((1024px - (grid(9))) / 2)
+  .ipad.vertical &
+    padding: 3px ((768px - (grid(6))) / 2) 1px ((768px - (grid(6))) / 2)
+    
+
+
+.ad.grid, .cover.grid, .sectionfront.grid
+  .container
+    img
+      width: 100% !important
+      height: auto !important
+
+.container.video
+  position: absolute
+  iframe
+    width: 700px
+    height: 393px
+
+
+// Grid styles
+
+@-webkit-keyframes cover1
+  0%
+    opacity: 1.0
+  33%
+    opacity: 0
+  67%
+    opacity: 0
+  100%
+    opacity: 1.0
+
+@-webkit-keyframes cover2
+  0%
+    opacity: 0
+  33%
+    opacity: 1.0
+  67%
+    opacity: 0
+  100%
+    opacity: 0
+
+@-webkit-keyframes cover3
+  0%
+    opacity: 0
+  33%
+    opacity: 0
+  67%
+    opacity: 1.0
+  100%
+    opacity: 0
+
+
+@-moz-keyframes cover1
+  0%
+    opacity: 1.0
+  33%
+    opacity: 0
+  67%
+    opacity: 0
+  100%
+    opacity: 1.0
+
+@-moz-keyframes cover2
+  0%
+    opacity: 0
+  33%
+    opacity: 1.0
+  67%
+    opacity: 0
+  100%
+    opacity: 0
+
+@-moz-keyframes cover3
+  0%
+    opacity: 0
+  33%
+    opacity: 0
+  67%
+    opacity: 1.0
+  100%
+    opacity: 0
+
+
+@-ms-keyframes cover1
+  0%
+    opacity: 1.0
+  33%
+    opacity: 0
+  67%
+    opacity: 0
+  100%
+    opacity: 1.0
+
+@-ms-keyframes cover2
+  0%
+    opacity: 0
+  33%
+    opacity: 1.0
+  67%
+    opacity: 0
+  100%
+    opacity: 0
+
+@-ms-keyframes cover3
+  0%
+    opacity: 0
+  33%
+    opacity: 0
+  67%
+    opacity: 1.0
+  100%
+    opacity: 0
+
+
+@-o-keyframes cover1
+  0%
+    opacity: 1.0
+  33%
+    opacity: 0
+  67%
+    opacity: 0
+  100%
+    opacity: 1.0
+
+@-o-keyframes cover2
+  0%
+    opacity: 0
+  33%
+    opacity: 1.0
+  67%
+    opacity: 0
+  100%
+    opacity: 0
+
+@-o-keyframes cover3
+  0%
+    opacity: 0
+  33%
+    opacity: 0
+  67%
+    opacity: 1.0
+  100%
+    opacity: 0
+
+
+@keyframes cover1
+  0%
+    opacity: 1.0
+  33%
+    opacity: 0
+  67%
+    opacity: 0
+  100%
+    opacity: 1.0
+
+@keyframes cover2
+  0%
+    opacity: 0
+  33%
+    opacity: 1.0
+  67%
+    opacity: 0
+  100%
+    opacity: 0
+
+@keyframes cover3
+  0%
+    opacity: 0
+  33%
+    opacity: 0
+  67%
+    opacity: 1.0
+  100%
+    opacity: 0
+
+.cover.grid
+  .touch &:before
+    +sprite(230px, 39px, 598px, 113px)
+    right: 0
+    position: absolute
+    display: block
+    text-indent: 60px
+    padding-top: 11px
+    top: 39px
+    z-index: 1
+    content: "Swipe"
+    font-size: 20px
+    font-weight: bold
+    color: #fff
+    +caps(.2em)
+  .smallscreen.touch &:before
+    display: none
+  .logo
+    +sprite(211px, 211px, 0, 73px)
+    position: absolute
+    z-index: 2
+    top: $margin
+    left: $margin
+  .cover1
+    +animation(cover1 20s infinite)
+    +transition(opacity .2s)
+  .cover2
+    +animation(cover2 20s infinite)
+    +transition(opacity .2s)
+  .cover3
+    +animation(cover3 20s infinite)
+    +transition(opacity .2s)
+  .coverlines
+    background: #000
+    background: rgba(#000, .5)
+    padding: $gutter $gutter $gutter $margin
+    display: block
+    opacity: 1
+    position: absolute
+    z-index: 1
+    bottom: $margin
+    right: 0
+    h1, h2, h3, li
+      color: #fff
+    h1
+      font-family: $hed
+      +solid(38px)
+      margin-bottom: 6px
+    h2
+      +solid(16px)
+    .caption
+      margin-top: 12px
+      color: #fff
+      +type(10px, 12px)
+      .credit
+        color: #fff
+        font-size: 8.5px
+      &:before
+        content: "Photo: "
+  &.w3, &.w2, &.w1
+    .logo
+      +sprite(46px, 46px, 288px, 5px)
+      top: $margin / 3
+      left: $margin / 3
+    .coverlines
+      display: none
+  &.w5, &.w4, &.w3
+    .logo
+      +sprite(100px, 100px, 327px, 100px)
+      top: $margin / 2
+      left: $margin / 2
+
+@-webkit-keyframes slide1
+  0%
+    opacity: 1.0
+  33%
+    opacity: 0
+  67%
+    opacity: 0
+  100%
+    opacity: 1.0
+
+@-webkit-keyframes slide2
+  0%
+    opacity: 0
+  33%
+    opacity: 1.0
+  67%
+    opacity: 0
+  100%
+    opacity: 0
+
+@-webkit-keyframes slide3
+  0%
+    opacity: 0
+  33%
+    opacity: 0
+  67%
+    opacity: 1.0
+  100%
+    opacity: 0
+
+
+@-moz-keyframes slide1
+  0%
+    opacity: 1.0
+  33%
+    opacity: 0
+  67%
+    opacity: 0
+  100%
+    opacity: 1.0
+
+@-moz-keyframes slide2
+  0%
+    opacity: 0
+  33%
+    opacity: 1.0
+  67%
+    opacity: 0
+  100%
+    opacity: 0
+
+@-moz-keyframes slide3
+  0%
+    opacity: 0
+  33%
+    opacity: 0
+  67%
+    opacity: 1.0
+  100%
+    opacity: 0
+
+
+@-ms-keyframes slide1
+  0%
+    opacity: 1.0
+  33%
+    opacity: 0
+  67%
+    opacity: 0
+  100%
+    opacity: 1.0
+
+@-ms-keyframes slide2
+  0%
+    opacity: 0
+  33%
+    opacity: 1.0
+  67%
+    opacity: 0
+  100%
+    opacity: 0
+
+@-ms-keyframes slide3
+  0%
+    opacity: 0
+  33%
+    opacity: 0
+  67%
+    opacity: 1.0
+  100%
+    opacity: 0
+
+
+@-o-keyframes slide1
+  0%
+    opacity: 1.0
+  33%
+    opacity: 0
+  67%
+    opacity: 0
+  100%
+    opacity: 1.0
+
+@-o-keyframes slide2
+  0%
+    opacity: 0
+  33%
+    opacity: 1.0
+  67%
+    opacity: 0
+  100%
+    opacity: 0
+
+@-o-keyframes slide3
+  0%
+    opacity: 0
+  33%
+    opacity: 0
+  67%
+    opacity: 1.0
+  100%
+    opacity: 0
+
+
+@keyframes slide1
+  0%
+    opacity: 1.0
+  33%
+    opacity: 0
+  67%
+    opacity: 0
+  100%
+    opacity: 1.0
+
+@keyframes slide2
+  0%
+    opacity: 0
+  33%
+    opacity: 1.0
+  67%
+    opacity: 0
+  100%
+    opacity: 0
+
+@keyframes slide3
+  0%
+    opacity: 0
+  33%
+    opacity: 0
+  67%
+    opacity: 1.0
+  100%
+    opacity: 0
+
+.toc.grid
+  .hero.container
+    background: #333
+    color: $page
+    padding-left: $margin
+    left: 0
+    .one, .two, .three
+      height: 321px
+      width: grid(4) + $margin
+    .links
+      width: grid(2)
+      position: absolute
+      top: 0
+      right: 0
+      height: 321px
+      a
+        display: block
+        height: 30%
+        overflow: hidden
+        border-bottom: 1px solid #666
+        padding: 5px 0
+        margin: 0 10px 0 0
+        &:last-child
+          border-bottom: none
+        h2, h3, p
+          color: #fff
+        h3
+          +type(12px, 14px)
+          font-weight: 400
+        h2
+          +type(16px, 18px)
+        p
+          +type(12px, 14px)
+        &:before
+          +transition(width .2s)
+          
+          content: "\0020"
+          display: block
+          position: absolute
+          left: -16px
+          height: 95px
+        &:nth-child(1):before
+          width: 4px
+        &:nth-child(2):before
+          width: 4px
+        &:nth-child(3):before
+          width: 4px
+    .slideshow div
+      position: absolute
+      left: 0
+      top: 0
+      overflow: visible
+      .tab
+        margin-top: $gutter
+        padding: 1px 6px 3px $margin
+        color: $page
+        font-weight: 700
+        +caps
+        +solid(14px)
+        white-space: nowrap
+      &.one, &.two, &.three
+        +transition(opacity .2s)
+      &.one
+        +animation(slide1 30s infinite)
+      &.two
+        +animation(slide2 30s infinite)
+      &.three
+        +animation(slide3 30s infinite)
+    img
+      position: absolute
+      width: (($column * 4) + ($gutter * 3) + $margin)
+      height: 321px
+      left: 0
+  &.ipad.horizontal .hero.container
+    padding-left: (1024px - (grid(9))) / 2
+    width: grid(6)
+    .one, .two, .three
+      width: grid(4) + ((1024px - grid(9)) / 2)
+  &.ipad.vertical .hero.container
+    padding-left: (768px - (grid(6))) / 2
+    width: grid(6)
+    .one, .two, .three
+      width: grid(4) + ((768px - grid(6)) / 2)
+  .keeptogether
+    h4
+      font-size: 12px
+      font-weight: normal
+      a
+        color: #000
+    h3
+      font-size: 16px
+  .container.departments
+    position: absolute
+    top: $line-height * 2 !important
+    bottom: $line-height*3 !important
+    h3
+      background: #ccc
+      border-top: 1px solid $primary
+      +solid(12px)
+      padding: 3px 6px
+    li
+      border-bottom: 1px solid #aaa
+      +type(14px, 18px)
+      display: block
+      padding: 12px 0px
+      .dept
+        font-weight: bold
+        display: block
+
+// OFFSET FOR IPAD VERTICAL PHOTOS
+=ratio($width, $height, $cols)
+  .photos.grid.ipad.vertical .img.container.double-#{$width}x#{$height}
+    margin-top: (((768px * ($height / $width)) / 2)) * -1
+    height: 768px * ($height / $width)
+    img
+      height: 768px * ($height / $width)
++ratios
+.photos.grid
+  .type
+    position: absolute
+    left: 0
+    right: 0
+    bottom: 0
+    top: 0
+    overflow: hidden
+  .container h4
+    font-family: $hed
+    padding: 8px 24px
+  &.sizetocontainer
+    .container
+      top: 0
+      p.caption
+        margin: 6px 0 12px
+  &.ipad.vertical
+    background: #161616
+    border: 0
+    .container.img, img
+      width: 100%
+    .container.img
+      top: 50%
+      position: absolute
+      .caption
+        color: #fff
+        position: absolute
+        bottom: 0px
+        padding: 6px
+        background: rgba(#000, .7)
+      &.double-3x4, &.double-4x5
+        .caption
+          bottom: $line-height*2
+          width: grid(4)
+  .container.morephotos
+    display: block
+    padding: 0
+    +corner-radius(top, left, 6px)
+    +corner-radius(bottom, left, 6px)
+    background: rgba(#000, .7)
+    right: 0px
+    bottom: 40px
+    h5
+      color: #fff
+      margin: 0
+      padding: 12px ($gutter) 12px 16px
+      +solid(16px)
+      +caps
+  &.sizetocontainer, &.mobile
+    .container.morephotos
+      z-index: 3
+      right: 1em
+      top: 1px
+      +border-radius(2px)
+      background: rgba(#000, .5)
+      +box-shadow(inset 0 3px 5px rgba(#000, .5))
+      h5
+        padding: 3px 8px
+        +solid(14px)
+  &.ipad.horizontal
+    background: #161616
+    .img.container
+      height: 100%
+      img
+        display: block
+        height: 100%
+        width: auto
+        float: left
+        padding-right: $gutter
+      .caption
+        position: relative
+        top: $line-height
+        color: #fff
+        .credit
+          color: #aaa
+      &.triple-4x3, &.triple-16x9
+        img
+          width: 1024px
+          height: auto
+      &.triple-5x4, &.triple-4x3, &.triple-16x9
+        width: 100%
+        .caption
+          background: rgba(#000, .7)
+          position: absolute
+          bottom: $line-height * 2
+          top: auto
+          right: 0
+          width: grid(3)
+          padding: 10px $margin 10px 10px
+    .container.morephotos
+      left: auto
+      right: 0
+      +border-radius(0)
+      +corner-radius(top, left, 6px)
+      +corner-radius(bottom, left, 6px)
+
+.column.grid
+  h2.dek
+    line-height: 22px
+
+.tunein.grid
+  img
+    width: 428px
+    height: 428px * (9 / 16)
+  h4
+    margin-top: $line-height
+    font-size: 18px
+  .column
+    li
+      padding: 0 6px
+      .time, .teams, .channel
+        display: inline-block
+      .time
+        width: 70px
+      .teams
+        width: 448px - (76px * 2)
+      .network
+        background-image: url("../img/tv-sprites.png")
+        text-indent: -9999px
+        position: absolute
+        display: inline-block
+        right: 50px
+      .channel
+        width: 50px
+        text-align: right
+      &:nth-child(2n)
+        background: $tertiary
+  &.mobile
+    li
+      width: 280px
+      overflow: hidden
+      white-space: nowrap
+      font-size: 12px
+      padding: 0
+      .time
+        width: 50px
+      .teams
+        width: 260px
+      .network
+        right: 30px
+      .channel
+        position: absolute
+        right: 0
+        width: 30px
+  .headliner
+    background-color: #222
+    h1, p, .info
+      padding: 0 6px
+      color: $page
+    .time, .network
+      color: $page
+      font-size: 12px
+    .network:before
+      content: " on "
+  .sidebar-hed
+    top: 38px
+    width: $column * 2 + $gutter + $margin
+    height: $line-height
+    padding: 3px 0 2px 0
+    text-indent: 6px
+    color: $page
+    background-color: $primary
+    @if $sn-web
+      +letterpress($primary)
+      +gloss($primary)
+    +corner-radius(top, left, 4px)
+    +caps
+  .sidebar.container
+    .teams
+      font-weight: bold
+      display: block
+      line-height: 14px
+      padding-bottom: 2px
+    .network
+      background-image: url("../img/tv-sprites.png")
+      text-indent: -9999px
+      display: inline-block
+      position: relative
+      margin-left: 1em
+      top: -1px
+    .channel
+      margin-left: .3em
+    .time, .network
+      font-size: 12px
+  &.mobile
+    img
+      display: none
+
+
+.aggregation.grid
+  .column, .container
+    top: $line-height * 2.2
+    bottom: $line-height * 2
+  a
+    display: block
+    padding-top: 6px
+    &:hover
+      border-bottom: none
+  .title h1
+    +type($line-height * 1.2, $line-height * 1.5)
+    margin-bottom: $line-height
+    font-family: $subhed
+  .keeptogether
+    border-top: 1px solid #ccc
+    &:first-child
+      border-top: none
+  h1
+    +type(18px, 18px)
+    margin-bottom: 0
+  h2, h3
+    +type(10px, 8px)
+    display: inline
+  h3
+    font-weight: normal
+  p
+    +type(12px, 16px)
+    text-indent: 0
+  .sidebar-hed
+    text-indent: 66px
+    background-image: url('../img/sprites.png')
+    background-position: -943px 0
+    background-repeat: no-repeat
+  .box.container
+    background-color: #333
+    padding-bottom: 6px
+    img
+      margin-top: -6px
+    h1, h2, h3, p
+      color: $page
+      padding: 0 6px
+    h2
+      padding-right: 0
+    h3
+      padding-left: 0
+  .viewmore.container
+    text-align: center
+    +border-radius(3px)
+    height: $line-height
+    padding: 6px 0
+    .scroll-container
+      overflow: hidden
+      padding: 0
+    &:after
+      display: none
+    .viewmore
+      padding: 0
+      font-weight: bold
+      color: $page
+      +caps
+  .writer
+    +type(16px, 20px)
+    +caps
+  .title
+    color: #444
+    +type(14px, 14px)
+  h2, h3
+    color: #444
+  .sidebar-hed .team
+    display: none
+  &.ipad.horizontal
+    .sidebar.container, .sidebar-hed
+      width: (($column * 4) + $gutter + ((1024px - (grid(9))) / 2))
+
+.teamlogo
+  background-image: url("../img/team-sprites.png")
+  display: block
+  width: 72px
+  height: 72px
+
+// Lightbox stuff
+
+.container.lightbox .video
+  padding: 6px
+  iframe
+    display: block
+    width: 700px
+    height: 393px
+  .os-ipad.orientation-landscape & iframe
+    width: 960px
+    height: 540px
+  @media all and (max-width: 700px)
+    iframe
+      width: 267px
+      height: 150px
+    
+
+.container.lightbox .aggrigatelisting
+  background: #fff
+  .scroll
+    width: 600px
+    height: 600px
+    overflow: scroll
+  a
+    background: #fff
+    display: block
+    padding: 6px 9px
+    border-top: 1px solid #aaa
+    &:first-child
+      border-top: none
+    &:hover
+      border-bottom: none
+  h1
+    +type(18px, 18px)
+  h2, h3
+    +type(10px, 14px)
+    display: inline
+  h3
+    font-weight: normal
+  p
+    +type(12px, 16px)
+    text-indent: 0
+
+.tabular.grid
+  .container.tabular
+    top: $line-height * 4 !important
+    bottom: $line-height * 3 !important
+    div.scroll-fade
+      width: 100%
+      height: 100%
+      .scroll
+        position: absolute
+        top: 0
+        bottom: 0
+        height: auto
+  &.mobile
+    .container.tabular
+      top: 22px !important
+      bottom: $line-height * 2 !important
+  p
+    text-indent: 0
+  h2
+    text-transform: uppercase
+    color: #424143
+    +type(16px, 16px)
+    margin: 4px 0 8px
+  h4
+    background: #424143
+    color: #fff
+    +type(16px, 16px)
+    padding: 4px
+    margin: 4px 0
+  h3
+    @include redbg
+    padding: 4px
+    text-transform: uppercase
+    +type(16px, 16px)
+  .home
+    color: $home
+  .visiting
+    color: $visiting
+  table
+    width: 100%
+    margin-bottom: 4px
+    tr.header
+      text-align: left
+      vertical-align: top
+    tbody
+      tr:nth-child(2n)
+        background: #ddd
+    td, th
+      padding: 2px 4px
+  .more a
+    +button(#555)
+    font-size: 16px
+  .more.right a
+    position: absolute
+    right: 0
+    margin-top: -30px
+    padding: 4px 9px 3px 9px
+  &.ipad.horizontal
+    .container.w3.tabular
+      top: 0 !important
+    .container.w6.tabular
+      top: $line-height * 2 !important
+  .standings
+    tr.header
+      @include redbg
+      th.division
+        text-transform: uppercase
+        +type(16px, 16px)
+        padding: 4px 8px
+        width: 140px
+      &.nfl
+        background: #1b2b59
+        @if $sn-web
+          +gradient(#aab5d5, #1b2b59)
+    td:first-child
+      padding: 2px 8px
+  .scores
+    padding: 0
+    .scoretable
+      width: ($column * 3) + ($gutter * 2) -3px
+      overflow: hidden
+      position: relative
+    .boxscore
+      table.score
+        margin: 10px 0 16px 0
+        padding: 0
+      .home
+        color: #000
+        a
+          color: $home
+      .visiting
+        color: #000
+        a
+          color: $visiting
+      li
+        margin: 0 0 2px
+    table.score
+      +type(18px, 18px)
+      width: 98%
+      position: relative
+      margin: 0 0 16px
+      th
+        +type(10px, 10px)
+        text-transform: uppercase
+        text-align: center
+        height: 12px
+      td
+        +type(14px, 14px)
+        text-align: center
+        padding: 6px 8px
+        font-weight: bold
+        &.team
+          text-align: left
+          padding: 6px 8px 6px 12px
+      tbody
+        td
+          border-right: 2px solid #fff
+        tr
+          border-bottom: 4px solid #fff
+          height: 24px
+          &:last-child
+            border-bottom: 0
+      .home
+        background: #1b2b59
+        @if $sn-web
+          +gradient(#aab5d5, #1b2b59)
+        color: #fff
+      .visiting
+        background: #dddbdc
+        @if $sn-web
+          +gradient(#dddbdc, #c2bfbe)
+        color: #000
+    .quarter
+      a
+        font-weight: bold
+  .fantasy
+    h1
+      @include redbg
+      text-transform: uppercase
+      +type(16px, 16px)
+      padding: 4px 8px
+      margin: 0 0 20px
+    h2
+      +type(36px, 36px)
+      text-transform: none
+    h4
+      background: none
+      color: #000
+      padding: 0
+    th
+      p
+        font-weight: normal
+    .even
+      background: #ddd
+    thead
+      tr.header 
+        background: none
+      th
+        text-align: center
+        vertical-align: top
+        padding: 4px 4px 8px
+        p
+          +type(12px, 12px)
+        img
+          margin-top: 4px
+        &.intro
+          text-align: left
+          p
+            +type(14px, 18px)
+    tbody
+      +type(14px, 14px)
+      th
+        text-align: left
+        vertical-align: middle
+      td
+        padding: 6px 8px
+        vertical-align: middle
+      tr:nth-child(3n+1)
+        td
+          border-top: 4px solid $primary
+          +type(16px, 16px)
+          font-weight: bold
+          text-transform: uppercase
+          text-align: center
+          &.start
+            background: $primary
+            color: #fff
+      tr:nth-child(3n+2)
+        td
+          background: #424143 url(../img/sprites.png) no-repeat -890px -117px
+          padding: 8px 8px 8px 32px
+          color: #fff
+          &.down
+            background-position: -890px -86px 
+          span
+            font-weight: bold
+      tr:nth-child(3n+3)
+        background: none
+        td
+          padding: 0
+          height: 8px
+          line-height: 8px
+  .poll
+    h4
+      background: $primary
+      @if $sn-web
+        +gradient($primary, #831518)
+    li
+      padding: 4px 4px 4px 72px
+      list-style-position: inside
+      font-weight: 700
+      @if $sn-web
+        +gradient(#E2E2E2, #fff)
+      +type(12px, 14px)
+      border-top: 1px solid #ddd
+      &:first-child
+        border-top: none
+      p
+        +type(12px, 14px)
+        font-weight: normal
+      &:before
+        content: "\0020"
+        background-image: url("../img/team-sprites.png")
+        position: absolute
+        display: block
+        left: 0
+        width: 72px
+        height: 72px
+  li
+    position: relative
+    margin: 0 0 8px
+    div.score
+      position: absolute
+      right: 0
+      bottom: 0
+      font-weight: bold
+  .stats
+    .gameinfo
+      position: relative
+      margin: 0 0 16px
+      p
+        padding-left: 16px
+    th
+      +type(16px, 16px)
+    td:nth-child(2), td:nth-child(3)
+      font-weight: bold
+    td:nth-child(2), li.home span
+      color: $home
+    td:nth-child(3), li.visiting span
+      color: $visiting
+    li
+      span
+        font-weight: bold
+  .schedule,
+  .scores
+    h2
+      color: #000
+  .schedule
+    h3
+      +type(18px, 18px)
+      padding: 4px 8px
+      &.american
+        @include bluebg
+      &.interleague
+        @include greybg
+    .results
+      td:nth-child(2n)
+        font-weight: bold
+    .schedule
+      td:nth-child(4)
+        font-weight: bold 
+    &.c4
+      .more
+        text-align: right
+  .mlb
+    .schedule
+      span
+        display: block
+        +type(12px, 14px)
+      &.c1
+        .more
+          text-align: right
+      &.c4
+        td:nth-child(4)
+          text-align: right
+    .standings
+      h2
+        +type(21px, 21px)
+      tr
+        &.american
+          @include bluebg
+        &.interleague
+          @include greybg
+        &.header
+          th.division
+            width: 170px
+    .scores
+      thead
+        background: $primary
+      h1:before
+        +sprite(80px, 80px, 243px, 190px)
+      [league="american"]
+        thead
+          background: #1b2b59
+        h1:before
+          +sprite(80px, 80px, 243px, 105px)
+      table.score
+        width: 100%
+        margin-top: $line-height * 2
+        tbody tr
+          border-bottom: none
+      h1
+        +solid($line-height)
+        font-weight: normal
+        padding: 30px 0 0 80px
+        +caps(.05em)
+        &:before
+          content: "\0020"
+          position: absolute
+          top: 0
+          left: 0
+      thead
+        color: $page
+        th
+          font-weight: normal
+          padding: 6px 0
+        .label
+          font-weight: bold
+          text-align: left
+          padding-left: 10px
+      .home, .visiting
+        border-top: 1px solid $page
+        border-bottom: 1px solid $page
+        td
+          border-right: none
+        th
+          width: 1.7em
+          vertical-align: middle
+        &.win
+          th:nth-child(11), th:nth-child(12), th:nth-child(13)
+            background: #777
+            color: $page
+        th:nth-child(3n+1)
+          border-right: 1px solid #fff
+        th:last-child
+          border: none
+        td, th
+          color: #000
+          +solid(11px)
+          padding: 0
+      .visiting th:nth-child(3n+1)
+        border-color: #ddd
+      tbody
+        tr:nth-child(2n+1)
+          background: #ddd
+        tr:nth-child(2n)
+          background: #fff
+      [colspan="13"]
+        background: #ddd
+        text-align: left
+        +type(12px, 14px)
+        font-weight: normal
+  .scores .singlegame
+    table.score
+      margin-top: 0
+      th
+        vertical-align: middle
+        font-weight: normal
+        text-transform: none
+      th:first-child
+        text-align: left
+        padding-left: 6px
+        font-weight: bold
+      &.grey
+        tr:nth-child(2n+1)
+          background: #fff
+        tr:nth-child(2n)
+          background: #ddd
+        tr.header
+          background: #aaa
+        th
+          color: #000
+          font-weight: bold
+        tr.totals
+          background: #555
+          th
+            color: #fff
+      &.blue
+        th
+          color: #000
+          font-weight: bold
+        tr:nth-child(2n+1)
+          background: #fff
+        tr:nth-child(2n)
+          background: #ddd
+        tr.header
+          background: #1b2b59
+          th
+            color: #fff
+        tr.totals
+          background: #555
+          th
+            color: #fff
+    h6
+      font-weight: normal
+      margin-bottom: 4px
+    .vs
+      height: 110px
+      &:before
+        content: "VS"
+        position: absolute
+        display: block
+        text-align: center
+        width: 100%
+        top: 40px
+      .home, .away
+        width: 72px
+        text-align: center
+        font-size: 18px
+        margin: 0 20px
+      .score
+        font-size: 38px
+        position: absolute
+        top: 40px
+        width: 125px
+      .stat
+        &:before
+          content: "("
+        &:after
+          content: ")"
+      .away
+        float: left
+        .score
+          text-align: right
+      .home
+        float: right
+        .score
+          text-align: left
+          margin-left: -53px
+    tr.header.red
+      background: $primary
+      color: #fff
+    h6.red
+      font-size: 14px
+      font-weight: bold
+      padding: 2px 4px
+      margin-top: $line-height
+      background: $primary
+      color: #fff
+  .ncaaf
+    .schedule
+      thead
+        tr.header
+          @include redbg
+          th
+            text-transform: uppercase
+            +type(12px, 12px)
+            text-align: center
+            vertical-align: middle
+            &.division
+              +type(16px, 18px)
+              text-transform: none
+              text-align: left
+            &:nth-child(3)
+              border-right: 6px solid #fff
+        td
+          font-weight: bold
+          +type(12px, 12px)
+          text-align: center
+      tbody
+        tr
+          &:nth-child(2n+8)
+            background: #fff
+          &:nth-child(2n+9)
+            background: #ddd
+          &.region
+            background: #fff
+            td
+              font-weight: bold !important
+              text-transform: uppercase
+              +type(12px, 12px)
+        td
+          text-align: center
+        td:nth-child(1)
+          text-align: left
+        td:nth-child(3)
+          border-right: 6px solid #fff
+      .more
+        padding: 5px 0 15px
+  .ncaaf
+    .stats
+      thead
+        tr.header
+          @include redbg
+          th
+            +type(12px, 12px)
+            text-align: center
+            vertical-align: middle
+            &.publication
+              +type(16px, 18px)
+              text-transform: none
+              text-align: left
+              padding: 6px 4px
+              width: 200px
+      tbody
+        td
+          color: #000
+          text-align: right
+          padding: 0 2px
+        td:nth-child(1)
+          font-weight: bold
+          text-align: right
+          padding: 0 4px
+        td:nth-child(2), td:nth-child(3)
+          font-weight: normal
+          text-align: right
+        td:nth-child(2)
+          text-align: left
+        td:nth-child(3)
+          text-align: center
+  .nascar
+    .standings
+      tr
+        th
+          text-align: center
+      tbody
+        td
+          text-align: center
+        td:nth-child(2)
+          text-align: left
+        td:nth-child(7), td:nth-child(10)
+          text-align: right
+    .schedule
+      tbody
+        td
+          vertical-align: middle
+          span
+            display: block
+            font-weight: bold
+        td:nth-child(3)
+          text-align: left  
+    .results
+      tbody
+        td:nth-child(2), td:nth-child(7)
+          text-align: center
+      td:nth-child(1)
+        font-weight: bold 
+      td:nth-child(4), th:nth-child(4), td:nth-child(5), th:nth-child(5)
+        text-align: left
+      td:nth-child(9), th:nth-child(9)
+        text-align: right
+  
+.tabular
+  .nascar
+    .title
+      h1.hed 
+        color: #000
+        font-family: $font
+        text-transform: uppercase
+        font-size: 24px 
+        span
+          display: block
+          font-weight: normal       
+     
+.wire.grid
+  h1
+    font-family: $subhed
+    font-weight: 700
+    +type(30px, 34px)
+  h3.byline
+    margin-bottom: 5px
+    &:before
+      content: ""
+
+.sectionfront.grid
+  .border
+    position: absolute
+    z-index: 2
+    top: $margin
+    right: $margin
+    bottom: $margin
+    left: $margin
+    border: $border solid $primary
+    background: none
+  .coverlines.container
+    position: absolute
+    z-index: 3
+    right: 0
+    bottom: $line-height * 9
+    color: $page
+    background: rgba(#000, .8)
+    @if $sn-web
+      +box-shadow(0 1px 3px #000)
+    padding: $gutter ($gutter + $margin + $border) $gutter $gutter
+    h2
+      +hed
+      color: #fff
+      +solid(28px)
+      margin: -3px 0 12px 0
+    a
+      +solid(16px)
+      font-weight: 700
+      display: block
+      padding: 2px 2px 5px 2px
+      border-top: 1px solid #333
+    .caption
+      color: #ccc
+      +type(12px, 14px)
+      .credit
+        color: #999
+        +type(9px, 14px)
+    .ad
+      position: absolute
+      display: block
+      width: 165px
+      height: 45px
+      top: 4px
+      left: 170px
+  h1.legue
+    +hed
+    +solid($line-height * 6)
+    position: absolute
+    z-index: 1
+    left: $margin * 2
+    bottom: $margin * 2
+    color: $page
+  &.w5
+    h1.legue
+      +solid($line-height * 3)
+    .coverlines.container
+      bottom: $line-height * 6
+  &.w4, &.w3, &.w2, &.w1
+    h1.legue
+      +solid($line-height * 2)
+      text-shadow: 0 1px 5px #000
+      left: $margin / 2
+      right: $margin / 2
+      text-align: center
+    .border
+      top: $margin / 2
+      right: $margin / 2
+      bottom: $margin / 2
+      left: $margin / 2
+      border-width: 6px
+  &.ipad.horizontal .coverlines.container
+    bottom: $line-height * 3
+  .sn
+    .coverlines a
+      padding-left: 10px
+      margin: 0 0 0 -16px
+    h1
+      font-size: 110px
+  &.ipad.horizontal .sn
+    h1
+      font-size: 90px
+
+.teamindex.grid
+  ul
+    list-style: none
+    li
+      display: block
+      overflow: hidden
+      height: $line-height * 2
+    h5
+      font-weight: bold
+      margin-top: $line-height - 1px
+    ul
+      li
+        height: $line-height
+        border-top: none
+        margin: 0
+        a
+          border-bottom: none
+
+.ad.grid
+  iframe
+    pointer-events:  none
+
+
+.os-ipad
+  background: $page
+  .grid
+    .runningtitle
+      +border-radius(0)
+
+.mobile.grid
+  .runningtitle
+    white-space: nowrap
+    font-size: 10px
+  .iab300x250
+    border: 0
+    margin-left: -10px
+    width: 300px !important
+  .footer
+    width: 280px
+    font-size: 10px
+  &.photos
+    .container.morephotos
+      text-align: center
+      top: 26px
+    .container.img
+      width: 100%
+      top: 22px
+      bottom: 0
+      background: #000
+      .caption
+        position: absolute
+        bottom: 35px
+        padding: 6px
+        background: rgba(#000, .5)
+        color: #fff
+        .credit
+          color: #aaa
+      img
+        width: 100%
+        height: auto
+
+
+.smallscreen.mobile
+  .sectionfront, .cover, .ad
+    .container
+      width: 100%
+    
+
+.loading, .error
+  margin: 0 20px
+  &#nextPage, &#previousPage
+    display: none
+
+.error
+  +sprite(206px, 51px, 763px, 228px)
+
+.loading
+  +sprite(206px, 51px, 763px, 173px)
+
+html.no-treesaver
+  #header h1
+    +sprite(240px, 40px, 0px, 0px)
+    @media all and (min-width: 440px)
+      +sprite(390px, 70px, 338px, 221px)
+  .nav
+    padding: 0 $margin
+    margin: 0 (-$margin)
+    color: $page
+    +gradient($primary, darken($primary, 20%))
+    a
+      +border-radius(5px)
+      font-weight: bold
+      padding: 0 10px
+      margin: 0
+      +caps
+      font-size: 16px
+      line-height: 24px
+      background: darken($primary, 40%)
+    li li a
+      width: 150px
+      background: darken($primary, 40%)
+      text-transform: none
+      font-weight: normal
+      +border-radius(0)
+      +solid(14px)
+      padding: 3px
+    li li
+      border-top: 1px solid darken($primary, 30%)
+      &:first-child
+        border-top: none
+  #content
+    [data-grids="cover"], [data-grids="sectionfront"], [data-grids="photos"]
+      div, iframe, object
+        &.no-treesaver
+          max-width: 100%
+
+
+
+

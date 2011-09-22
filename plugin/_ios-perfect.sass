@@ -1,0 +1,38 @@
+// IPAD PIXEL-PERFECT STYLES
+// These styles allow you to create iPad specific grids.
+// To use create a new set of grids with the class "fixed ipad" followed by either "vertical" or "horizontal"
+
+// Margins will be over-written.
+// Recommended column and gutter widths are 95px and 16px
+
+// Make sure iPad grids don't show up for desktop users.
+.grid.ipad
+  +remove
+  margin: 0
+  +border-radius(0)
+  +box-shadow(none)
+  border: none
+
+// Force sizing and remove standard desktop grids.
+.os-ipad
+  .grid
+    +remove
+    opacity: 1 !important
+  .grid.fixed
+    &.ipad.horizontal
+      height: 690px
+      width: grid(9)
+      min-width: grid(9)
+      padding: 0 ((1024px - (grid(9))) / 2)
+    &.ipad.vertical
+      height: 946px
+      width: grid(6)
+      min-width: grid(6)
+      padding: 0 ((768px - (grid(6))) / 2)
+
+.os-ipad.fullscreen
+  .grid.fixed
+    &.ipad.horizontal
+      height: 748px
+    &.ipad.vertical
+      height: 1004px
