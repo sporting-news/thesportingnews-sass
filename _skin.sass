@@ -6,7 +6,8 @@ $base-size: $size
 
 // Metrics
 $columns: 12
-$column: 95px
+$module-w: 95px // column width
+$module-h: 95px // row height
 $gutter: 16px
 $margin: 24px
 $border: 12px
@@ -943,7 +944,7 @@ footer
         +animation(slide3 30s infinite)
     img
       position: absolute
-      width: (($column * 4) + ($gutter * 3) + $margin)
+      width: (grid(4) + $margin)
       height: 321px
       left: 0
   &.ipad.horizontal .hero.container
@@ -1146,7 +1147,7 @@ footer
       content: " on "
   .sidebar-hed
     top: 38px
-    width: $column * 2 + $gutter + $margin
+    width: grid(2) + $margin
     height: $line-height
     padding: 3px 0 2px 0
     text-indent: 6px
@@ -1251,7 +1252,7 @@ footer
     display: none
   &.ipad.horizontal
     .sidebar.container, .sidebar-hed
-      width: (($column * 4) + $gutter + ((1024px - (grid(9))) / 2))
+      width: (($module-w * 4) + $gutter + ((1024px - (grid(9))) / 2))
 
 .teamlogo
   background-image: url("../img/team-sprites.png")
@@ -1381,7 +1382,7 @@ footer
   .scores
     padding: 0
     .scoretable
-      width: ($column * 3) + ($gutter * 2) -3px
+      width: grid(3) -3px
       overflow: hidden
       position: relative
     .boxscore
