@@ -363,6 +363,28 @@ body
   .offline & a.no-offline
     display: none
 
+button.next, button.prev
+  display: none
+@if $sn-web
+  .no-touch
+    .viewer
+      left: 35px
+      right: 35px
+    button.next, button.prev
+      position: absolute
+      z-index: 99
+      position: absolute
+      top: 50%
+      margin-top: -25px
+      background: none
+      border: none
+    button.prev
+      left: 0
+      +sprite(50px, 50px, 966px, 49px)
+    button.next
+      right: 0
+      +sprite(50px, 50px, 916px, 49px)
+
 
 // FACEBOOK LOGIN
 

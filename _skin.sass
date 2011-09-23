@@ -375,6 +375,8 @@ footer
       +caps
       height: 11px
       padding: 3px 2px 2px 4px
+      &:empty
+        content: "\0020 "
     .label, .section
       font-weight: 700
     .sublabel
@@ -1315,10 +1317,24 @@ footer
         top: 0
         bottom: 0
         height: auto
-  &.mobile
-    .container.tabular
-      top: 32px !important
-      bottom: $line-height * 2 !important
+  @if $sn-web
+    &.mobile
+      .container.tabular
+        top: 22px !important
+        bottom: $line-height * 2 !important
+        width: auto
+        left: 0
+        right: 0
+      .prevtab, .nexttab
+        z-index: 99
+        position: absolute
+        bottom: 37px
+      .prevtab
+        left: 0
+        +sprite(50px, 50px, 966px, 99px)
+      .nexttab
+        right: 0
+        +sprite(50px, 50px, 916px, 99px)
   p
     text-indent: 0
   h2
@@ -1492,10 +1508,17 @@ footer
             color: #fff
       tr:nth-child(3n+2)
         td
-          background: #424143 url(../img/sprites.png) no-repeat -890px -117px
+          position: relative
+          &:before
+            content: " "
+            position: absolute
+            left: 0
+            top: 0
+            +sprite(25px, 30px, 890px, 117px)
+          background-color: #424143
           padding: 8px 8px 8px 32px
           color: #fff
-          &.down
+          &.down:before
             background-position: -890px -86px 
           span
             font-weight: bold
