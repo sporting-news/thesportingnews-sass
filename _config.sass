@@ -1,0 +1,85 @@
+// CONFIGURATION //
+
+// Type
+$size: 14px
+$line-height: 20px
+
+$base-size: $size
+
+// Metrics
+$columns: 12
+$module-w: 95px // column width
+$module-h: $line-height // row height
+$gutter: 16px
+$margin: 24px
+$border: 12px
+$top: $line-height*2
+$bottom: $line-height*3
+
+// Colors
+$primary: #ce1443
+$secondary: #f50019
+$tertiary: #f7f4d5
+$text: #000
+$page: #fff
+$body: #333
+$home: #3b5880
+$visiting: #726d6e
+
+$sprite-file: '../img/sprites.png'
+
+// Fonts
+$font: 'apres', 'Apres RE', Verdana, sans-serif
+$hed: 'Popular', 'popular', serif
+$hed-weight: bold
+$hed-style: normal
+$subhed: $font
+
+@import sn-team-logos
+
+
+// IMAGE/PAGE RATIOS
+// If you wish to scale images and have fixed page sizes image ratios are a must. This allows images sizes to be measured for Treesaver.
+// Image sizes still need to be hard coded for lightboxes.
+@mixin ratios
+  +ratio(16, 9)
+  +ratio(4, 3)
+  +ratio(5, 4)
+  +ratio(1, 1)
+  +ratio(4, 5)
+  +ratio(3, 4)
+
+
+// COMPILE FOR WEB (true/false). False only compiles iOS components.
+$sn-web: true
+
+// Debug tools adds element highlihgting using one-letter classes and mixins.
+// @include r, @include g, @include b, @include c, @include m, @include y
+// .r, .g, .b, .c, .m, .y
+// red, green, blue, cyan, magenta, yellow
+$debug: true
+
+
+// EXTRAS (optional) //
+
+// Vertical grid
+//$vertical-grid: true // Compile vertical grid (true/false)
+//$rows: 20 // # of rows to calculate on the vertical grid
+
+// Scrollable figure styles
+//$scroll-support: false
+
+// Hyphenate paragraphs (via CSS3 hyphenation)
+//$hyphenate: false
+
+// Page Opacity (prev, next page at 50% opacity)
+//$page-opacity: false
+
+// Caption placement tools
+//$caption-placement: false
+
+// Fullbleed figure support
+//$fullbleed: false
+
+// Online/offline elements. The ability to show/hide based on network status.
+//$offline-elements: false
