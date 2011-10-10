@@ -60,6 +60,13 @@ footer
       border-top: 1px solid $color
     .pullquote p
       border-left: 5px solid $color
+    .sort
+      background-color: $color
+      @if $sn-web
+        +gradient(lighten($color, 10%),darken($color, 5%))
+        a
+          +box-shadow(0 0 2px darken($color, 20%))
+
   .nav .sidebar .#{$sport}
     border-top: 6px solid $color
     &.sport-select span.title
@@ -1219,6 +1226,34 @@ footer
   &.ipad.horizontal
     .sidebar.container, .sidebar-hed
       width: (($module-w * 4) + $gutter + ((1024px - (grid(9))) / 2))
+  // Order and refresh
+  .sort
+    +border-radius(3px)
+    margin-bottom: 6px
+    height: $line-height * 1.5 !important
+    padding: 3px !important
+    a
+      display: inline
+      position: relative
+      width: auto
+      +border-radius(3px)
+      border: none
+      padding: 8px 4px !important
+      top: 5px
+      margin-right: 3px
+      +solid(12px)
+      font-weight: bold
+      color: #000
+      background: #ccc
+      +caps
+      @if $sn-web
+        +letterpress(#ccc)
+        +gradient(lighten(#ccc, 10%),darken(#ccc, 10%))
+      &.refresh
+        float: right
+        margin-right: 0
+        top: 0px
+        padding: 5px 4px 5px 4px !important
 
 .teamlogo
   background-image: url("../img/team-sprites.png")
