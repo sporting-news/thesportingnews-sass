@@ -2000,8 +2000,18 @@ footer
           border-bottom: none
 
 .ad.grid
-  iframe
-    pointer-events:  none
+  .touch &
+    .prevtab, .nexttab
+      z-index: 99
+      position: absolute
+      top: 50%
+      margin-top: -25px
+    .prevtab
+      left: 0
+      +sprite(50px, 50px, 966px, 99px)
+    .nexttab
+      right: 0
+      +sprite(50px, 50px, 916px, 99px)
 
 
 .os-ipad
