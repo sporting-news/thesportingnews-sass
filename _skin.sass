@@ -645,19 +645,21 @@ footer
     left: $margin
   .container
     background-color: #000
+    .bkg-img
+      background-size: cover !important
   .cover1
-    .csstransforms &
+    .csstransforms3d &
       +animation(cover1 20s infinite)
       +transition(opacity .2s)
   .cover2
     +animation(cover2 20s infinite)
     +transition(opacity .2s)
-    .no-csstransforms &
+    .no-csstransforms3d &
       display: none
   .cover3
     +animation(cover3 20s infinite)
     +transition(opacity .2s)
-    .no-csstransforms &
+    .no-csstransforms3d &
       display: none
   .coverlines
     background: #000
