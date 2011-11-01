@@ -965,12 +965,14 @@ footer
         display: block
 
 // OFFSET FOR IPAD VERTICAL PHOTOS
+.photos.grid.ipad.vertical .img.container
+  overflow: visible
 =ratio($width, $height, $cols)
-  .photos.grid.ipad.vertical .img.container.double-#{$width}x#{$height}
+  .photos.grid.ipad.vertical .img.container [ratio="#{$width}x#{$height}"]
     margin-top: (((768px * ($height / $width)) / 2)) * -1
     height: 768px * ($height / $width)
     img
-      height: 768px * ($height / $width)
+      height: 768px * ($height / $width) !important
 +ratios
 .photos.grid
   .type
@@ -983,11 +985,25 @@ footer
   .container h4
     font-family: $hed
     padding: 8px 24px
+  .credit
+    color: #aaa
   &.sizetocontainer
     .container
       top: 0
+      img
+        display: block
       p.caption
-        margin: 6px 0 12px
+        background-color: rgba(#000, .6)
+        margin: 0
+        padding: .5em $margin
+        display: block
+        position: absolute
+        bottom: 0
+        left: 0
+        right: 0
+    .w1, .w2, .w3, .w4
+      p.caption
+        position: relative
   &.ipad.vertical
     background: #161616
     border: 0
@@ -1002,7 +1018,7 @@ footer
         bottom: 0px
         padding: 6px
         background: rgba(#000, .7)
-      &.double-3x4, &.double-4x5
+      [ratio="3x4"], [ratio="4x5"]
         .caption
           bottom: $line-height*2
           width: grid(4)
@@ -1035,6 +1051,7 @@ footer
     background: #161616
     .img.container
       height: 100%
+      top: 0
       img
         display: block
         height: 100%
@@ -1047,20 +1064,19 @@ footer
         color: #fff
         .credit
           color: #aaa
-      &.triple-4x3, &.triple-16x9
+      [ratio="5x4"], [ratio="4x3"], [ratio="16x9"]
+        width: 100%
         img
           width: 1024px
           height: auto
-      &.triple-5x4, &.triple-4x3, &.triple-16x9
-        width: 100%
         .caption
           background: rgba(#000, .7)
           position: absolute
-          bottom: $line-height * 2
+          bottom: $line-height * 1
           top: auto
-          right: 0
+          left: 0
           width: grid(3)
-          padding: 10px $margin 10px 10px
+          padding: 10px
     .container.morephotos
       left: auto
       right: 0
