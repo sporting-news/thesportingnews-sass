@@ -563,7 +563,7 @@ button.next, button.prev
 
 // LIGHTBOX
 
-.lightbox
+.lightbox, .lightboxed
   position: absolute
   top: 0
   right: 0
@@ -606,3 +606,15 @@ button.next, button.prev
   .touch &
     ::-webkit-scrollbar
       width: 0
+
+.lightboxed
+  padding: 0
+  iframe
+    position: relative
+    display: block
+    width: 90%
+    height: 90%
+    margin: 4% auto
+    max-width: 600px
+    +border-radius(4px)
+    +box-shadow(0 0 8px #000)
