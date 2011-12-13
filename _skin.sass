@@ -88,7 +88,7 @@ footer
       background: $color
       &:before
         background: $color
-  .toc.grid 
+  .toc.grid
     h4.#{$sport}
       border-top: 1px solid $color
   .sectionfront.grid .#{$sport}
@@ -448,7 +448,7 @@ footer
     padding: 3px ((1024px - (grid(9))) / 2) 1px ((1024px - (grid(9))) / 2)
   .ipad.vertical &
     padding: 3px ((768px - (grid(6))) / 2) 1px ((768px - (grid(6))) / 2)
-    
+
 
 
 .ad.grid, .cover.grid, .sectionfront.grid
@@ -890,7 +890,7 @@ footer
           +type(12px, 14px)
         &:before
           +transition(width .2s)
-          
+
           content: "\0020"
           display: block
           position: absolute
@@ -1104,16 +1104,17 @@ footer
       .teams
         width: 448px - (76px * 2)
       .network
-        background-image: url("../img/tv-sprites.png")
-        text-indent: -9999px
         position: absolute
         display: inline-block
-        right: 50px
+        right: 0px
       .channel
         width: 50px
         text-align: right
       &:nth-child(2n)
         background: $tertiary
+    h1
+      font-size: 16px
+      margin-bottom: 5px
   &.mobile
     li
       width: 280px
@@ -1141,6 +1142,8 @@ footer
       font-size: 12px
     .network:before
       content: " on "
+    p
+      font-size: 12px
   .sidebar-hed
     top: 38px
     width: grid(2) + $margin
@@ -1161,8 +1164,6 @@ footer
       line-height: 14px
       padding-bottom: 2px
     .network
-      background-image: url("../img/tv-sprites.png")
-      text-indent: -9999px
       display: inline-block
       position: relative
       margin-left: 1em
@@ -1174,7 +1175,52 @@ footer
   &.mobile
     img
       display: none
+  .container.bottom.iab300x250
+    bottom: 38px
+  .viewmore.container
+    position: absolute
+    height: 30px
+    top: 563px
+    .viewmore
+      text-align: center
+  .snrecommends
+    .scroll
+      height: 100px
+      overflow: auto
+      position: relative
 
+.lightbox
+  .container.lightbox
+    .tuneinlisting
+      background: white
+      .scroll
+        width: 600px
+        height: 600px
+        overflow: scroll
+      h4
+        margin: 10px 0 0 10px
+        font-size: 18px
+      ul
+        width: 98%
+        margin: 10px auto
+      li
+        padding: 0 6px
+        position: relative
+      li .time, li .teams, li .channel
+        display: inline-block
+      li .time
+        width: 70px
+      li .teams
+        width: 296px
+      li .network
+        position: absolute
+        display: inline-block
+        right: 0px
+      li .channel
+        width: 50px
+        text-align: right
+      li:nth-child(2n)
+        background: #f7f4d5
 
 .aggregation.grid
   .column, .container
@@ -1300,7 +1346,7 @@ footer
     iframe
       width: 267px
       height: 150px
-    
+
 
 .container.lightbox .aggrigatelisting
   background: #fff
@@ -1497,7 +1543,7 @@ footer
     .even
       background: #ddd
     thead
-      tr.header 
+      tr.header
         background: none
       th
         text-align: center
@@ -1542,7 +1588,7 @@ footer
           padding: 8px 8px 8px 32px
           color: #fff
           &.down:before
-            background-position: -890px -86px 
+            background-position: -890px -86px
           span
             font-weight: bold
       tr:nth-child(3n+3)
@@ -1619,7 +1665,7 @@ footer
         font-weight: bold
     .schedule
       td:nth-child(4)
-        font-weight: bold 
+        font-weight: bold
     &.c4
       .more
         text-align: right
@@ -1889,30 +1935,30 @@ footer
             display: block
             font-weight: bold
         td:nth-child(3)
-          text-align: left  
+          text-align: left
     .results
       tbody
         td:nth-child(2), td:nth-child(7)
           text-align: center
       td:nth-child(1)
-        font-weight: bold 
+        font-weight: bold
       td:nth-child(4), th:nth-child(4), td:nth-child(5), th:nth-child(5)
         text-align: left
       td:nth-child(9), th:nth-child(9)
         text-align: right
-  
+
 .tabular
   .nascar
     .title
-      h1.hed 
+      h1.hed
         color: #000
         font-family: $font
         text-transform: uppercase
-        font-size: 24px 
+        font-size: 24px
         span
           display: block
-          font-weight: normal       
-     
+          font-weight: normal
+
 .wire.grid
   h1
     font-family: $subhed
@@ -2081,7 +2127,7 @@ footer
   .sectionfront, .cover, .ad
     .container
       width: 100%
-    
+
 
 .loading, .error
   margin: 0 20px
