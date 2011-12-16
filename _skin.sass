@@ -1887,6 +1887,46 @@ footer
           border-right: 6px solid #fff
       .more
         padding: 5px 0 15px
+  .ncaab
+    .schedule
+      thead
+        tr.header
+          @include redbg
+          th
+            text-transform: uppercase
+            +type(12px, 12px)
+            text-align: center
+            vertical-align: middle
+            &.division
+              +type(16px, 18px)
+              text-transform: none
+              text-align: left
+            &:nth-child(3)
+              border-right: 6px solid #fff
+        td
+          font-weight: bold
+          +type(12px, 12px)
+          text-align: center
+      tbody
+        tr
+          &:nth-child(2n+8)
+            background: #fff
+          &:nth-child(2n+9)
+            background: #ddd
+          &.region
+            background: #fff
+            td
+              font-weight: bold !important
+              text-transform: uppercase
+              +type(12px, 12px)
+        td
+          text-align: center
+        td:nth-child(1)
+          text-align: left
+        td:nth-child(3)
+          border-right: 6px solid #fff
+      .more
+        padding: 5px 0 15px
   .ncaaf
     .stats
       thead
