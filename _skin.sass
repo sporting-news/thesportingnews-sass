@@ -296,6 +296,13 @@ footer
   border-right-width: 9px
   +border-radius(3px)
 
+.iab728x90
+  display: block
+  width: 728px
+  height: 90px
+  background-color: #fff
+  border: 8px solid #fff
+
 // General grid styles
 
 .grid
@@ -1194,13 +1201,17 @@ footer
   &.ipad.horizontal
     .sidebar.container, .sidebar-hed
       width: (($module-w * 4) + $gutter + ((1024px - (grid(9))) / 2))
+    .sidebar.container
+      height: 320px
+    .iab300x250
+      left: 64%
 
 .lightbox
   .container.lightbox
     .tuneinlisting
       background: white
       .scroll
-        width: 600px
+        width: 762px
         height: 600px
         overflow: scroll
       h4
@@ -1227,6 +1238,7 @@ footer
         text-align: right
       li:nth-child(2n)
         background: #f7f4d5
+
 
 .aggregation.grid
   .column, .container
