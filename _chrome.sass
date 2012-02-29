@@ -106,6 +106,15 @@ body
           &.email
             +sprite(($navheight - 8px),($navheight - 8px),435px,0)
             display: inline-block
+      // new issue button
+      a.new-issue
+        background: url('../img/new-issue-icon.png') no-repeat 5px center
+        padding-left: 25px
+        padding-right: 10px
+        text-align: right
+        &.disabled
+          background: url('../img/new-issue-icon-disabled.png') no-repeat 5px center
+          color: #545454
     li.alwaysactive
       +transition
       background: #f00
@@ -347,6 +356,10 @@ body
   position: absolute
   top: 100px
   opacity: 1
+
+// new issue button hiding
+.active .nav .bottom li.hiddennav.invisible
+  display: none
 
 // hide scores when offline
 .offline .active .nav .top .teams button
