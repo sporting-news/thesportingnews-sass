@@ -1404,6 +1404,7 @@ footer
         top: 0
         bottom: 0
         height: auto
+
   @if $sn-web
     &.mobile
       .container.tabular
@@ -1712,13 +1713,29 @@ footer
     .scores
       thead
         background: $primary
-      h1:before
-        +sprite(80px, 80px, 243px, 190px)
-      [league="american"]
+      div[league="national"]
+        h1:before
+          +sprite(80px, 80px, 243px, 190px)
+      div[league="american"]
         thead
           background: #1b2b59
         h1:before
           +sprite(80px, 80px, 243px, 105px)
+      div[league="grapefruit"]
+        thead
+          background: #7f96e2
+        h1:before
+          +sprite(80px, 80px, 243px, 360px)
+      div[league="interleague"]
+        thead
+          background: #7f96e2
+        h1:before
+          +sprite(80px, 80px, 144px, 374px)
+      div[league="cactus"]
+        thead
+          background: #ff8200
+        h1:before
+          +sprite(80px, 80px, 243px, 275px)
       table.score
         width: 100%
         margin-top: $line-height * 2
