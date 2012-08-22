@@ -94,7 +94,7 @@ footer
   .sectionfront.grid .#{$sport}
     .border
       border-color: $color
-    h1.legue
+    h1.legue 
       text-shadow: 4px 4px 0 $color, -4px 4px 0 $color, -4px -4px 0 $color, 4px -4px 0 $color
   .sectionfront.grid
     a.#{$sport}
@@ -2112,6 +2112,9 @@ footer
     left: $margin * 2
     bottom: $margin * 2
     color: $page
+    text-shadow: 4px 4px 0 #CE1443, -4px 4px 0 #CE1443, -4px -4px 0 #CE1443, 4px -4px 0 #CE1443
+  h1.section-smaller
+    +type($line-height * 3, $line-height * 3)
   &.w5
     h1.legue
       +solid($line-height * 3)
