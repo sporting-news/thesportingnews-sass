@@ -458,7 +458,7 @@ footer
 
 
 
-.ad.grid, .cover.grid, .sectionfront.grid
+.ad.grid, .cover.grid, .single-image-cover.grid, .sectionfront.grid
   .container
     img
       width: 100% !important
@@ -641,7 +641,7 @@ footer
   100%
     opacity: 0
 
-.cover.grid
+.cover.grid, .single-image-cover.grid
   .touch &:before
     +sprite(230px, 39px, 598px, 113px)
     right: 0
@@ -668,20 +668,6 @@ footer
     background-color: #000
     .bkg-img
       background-size: cover !important
-  .cover1
-    .csstransitions &
-      +animation(cover1 20s infinite)
-      +transition(opacity .2s)
-  .cover2
-    +animation(cover2 20s infinite)
-    +transition(opacity .2s)
-    .no-csstransitions &
-      display: none
-  .cover3
-    +animation(cover3 20s infinite)
-    +transition(opacity .2s)
-    .no-csstransitions &
-      display: none
   .coverlines
     background: #000
     background: rgba(#000, .5)
@@ -721,6 +707,21 @@ footer
       +sprite(100px, 100px, 327px, 100px)
       top: $margin / 2
       left: $margin / 2
+.cover.grid
+  .cover1
+    .csstransitions &
+      +animation(cover1 20s infinite)
+      +transition(opacity .2s)
+  .cover2
+    +animation(cover2 20s infinite)
+    +transition(opacity .2s)
+    .no-csstransitions &
+      display: none
+  .cover3
+    +animation(cover3 20s infinite)
+    +transition(opacity .2s)
+    .no-csstransitions &
+      display: none
 
 @-webkit-keyframes slide1
   0%
@@ -2218,7 +2219,7 @@ footer
 
 
 .smallscreen.mobile
-  .sectionfront, .cover, .ad
+  .sectionfront, .cover, .single-image-cover, .ad
     .container
       width: 100%
 
@@ -2266,11 +2267,7 @@ html.no-treesaver
       &:first-child
         border-top: none
   #content
-    [data-grids="cover"], [data-grids="sectionfront"], [data-grids="photos"]
+    [data-grids="cover"], [data-grids="single-image-cover"], [data-grids="sectionfront"], [data-grids="photos"]
       div, iframe, object
         &.no-treesaver
           max-width: 100%
-
-
-
-
